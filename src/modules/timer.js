@@ -27,10 +27,13 @@ const timer = (deadline) => {
             timerMinutes.textContent = getTime.minutes;
             timerSeconds.textContent = getTime.seconds;
 
+
+
         } else {
             getTime.hours = 0;
             getTime.minutes = 0;
             getTime.seconds = 0;
+            return clearInterval();
 
         }
         if (getTime.hours < 10) {
@@ -46,14 +49,14 @@ const timer = (deadline) => {
         //     // setInterval(updateClock, 1000);
         console.log('updateClock');
 
-        // }
-        // setInterval(() => {
-        //     timer('23 April 2022')
-        // }, 1000);
+    };
 
+    const interval = () => {
+        setInterval(updateClock, 1000);
     };
 
     updateClock();
+    interval();
 
 
 };
