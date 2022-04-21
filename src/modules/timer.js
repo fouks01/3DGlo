@@ -47,10 +47,6 @@ const timer = (deadline) => {
         if (getTime.seconds < 10) {
             timerSeconds.textContent = '0' + getTime.seconds;
         }
-        //     setTimeout(updateClock, 1000);
-        //     // setInterval(updateClock, 1000);
-        console.log('updateClock');
-
     };
 
     interval = setInterval(updateClock, 1000);
