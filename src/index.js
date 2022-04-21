@@ -5,4 +5,4 @@ import timer from './modules/timer';
 //     timer('20 April 2022')
 // }, 1000);
 
-timer('23 April 2022');
+timer('19 April 2022');
