@@ -8,6 +8,11 @@ const menu = () => {
         menu.classList.toggle('active-menu');
     };
 
+    closeBtn.onclick = () => {
+        closeBtn.setAttribute('href', '#close');
+        return false;
+    };
+
 
     menuBtn.addEventListener('click', handleMenu);
     closeBtn.addEventListener('click', handleMenu);

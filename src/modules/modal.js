@@ -4,7 +4,7 @@ const modal = () => {
     const closeBtn = modal.querySelector('.popup-close');
     const modalBlock = modal.querySelector('.popup-content');
     const width = document.documentElement.clientWidth;
-    console.log(screen.width);
+
 
     let count = 0;
     let modalMove;
