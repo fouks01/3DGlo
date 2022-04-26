@@ -4,6 +4,7 @@ import modal from './modules/modal';
 import calc from './modules/calc';
 import validate from './modules/validate';
 import tabs from './modules/tabs';
+import slider from './modules/slider';
 
 
 
@@ -11,9 +12,11 @@ import tabs from './modules/tabs';
 
 
 
-timer('23 April 2022');
+
+timer('15 May 2022');
 menu();
 modal();
 calc();
 validate();
 tabs();
+slider();

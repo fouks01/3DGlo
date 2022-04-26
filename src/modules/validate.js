@@ -22,8 +22,8 @@ const validate = () => {
     });
 
 
-    email.forEach((event) => {
-        event.addEventListener('input', (e) => {
+    email.forEach((elem) => {
+        elem.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^\w0-9\-\.\_\!\~\*\'@]/gi, '');
         });
     });

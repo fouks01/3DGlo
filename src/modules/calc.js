@@ -20,12 +20,6 @@ const calc = () => {
   type.addEventListener('change', () => {
     console.log(type.value);
   });
-
-  console.log(type[0]);
-
-
-  console.log(square);
-
 };
 
 export default calc;
