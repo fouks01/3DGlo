@@ -13,11 +13,19 @@ const menu = () => {
         return false;
     };
 
-
     menuBtn.addEventListener('click', handleMenu);
-    closeBtn.addEventListener('click', handleMenu);
+    // closeBtn.addEventListener('click', handleMenu);
 
-    menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu));
+    // menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu));
+
+    menu.addEventListener('click', (e) => {
+        if (e.target.closest('.close-btn')) {
+            handleMenu();
+        } else if (e.target.closest('a')) {
+            handleMenu();
+        }
+    });
+
 
 };
 

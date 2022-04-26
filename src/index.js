@@ -3,6 +3,8 @@ import menu from './modules/menu';
 import modal from './modules/modal';
 import calc from './modules/calc';
 import validate from './modules/validate';
+import tabs from './modules/tabs';
+
 
 
 
@@ -14,3 +16,4 @@ menu();
 modal();
 calc();
 validate();
+tabs();
