@@ -18,7 +18,7 @@ const calc = () => {
 
 
   type.addEventListener('change', () => {
-    console.log(type.value);
+    // console.log(type.value);
   });
 };
 
