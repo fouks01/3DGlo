@@ -1,3 +1,7 @@
+import {
+    animate
+} from './helpers';
+
 const modal = () => {
     const modal = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
@@ -7,21 +11,31 @@ const modal = () => {
     let count = 0;
     let modalMove;
 
-    const modalAnimation = () => {
-        count++;
-        modalMove = requestAnimationFrame(modalAnimation);
+    // const modalAnimation = () => {
+    //     count++;
+    //     modalMove = requestAnimationFrame(modalAnimation);
 
-        if (count < 43) {
-            modalBlock.style.left = count + '%';
-        } else {
-            cancelAnimationFrame(modalMove);
-        }
-    };
+    //     if (count < 43) {
+    //         modalBlock.style.left = count + '%';
+    //     } else {
+    //         cancelAnimationFrame(modalMove);
+    //     }
+    // };
+
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             if (screen.width > 767) {
-                modalAnimation();
+                animate({
+                    duration: 1000,
+                    timing(timeFraction) {
+                        return Math.pow(timeFraction, 2);
+                    },
+                    draw(progress) {
+                        modalBlock.style.left = progress * 43 + '%';
+
+                    }
+                });
                 modal.style.display = 'block';
             } else {
                 modal.style.display = 'block';
