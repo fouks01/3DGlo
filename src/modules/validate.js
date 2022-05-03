@@ -18,7 +18,7 @@ const validate = () => {
     });
 
     placeholder[0].addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-Я\s-]/gi, '');
+        e.target.value = e.target.value.replace(/[^а-яА-Я0-9\s\.,\!?;:\-_]/gi, '');
     });
 
 
