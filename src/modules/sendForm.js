@@ -8,17 +8,37 @@ const sendForm = ({
     const errorText = 'Ошибка...';
     const successText = 'Спасибо! Биба с вами свяжется!';
 
+    const text = document.querySelectorAll('[name="user_name"]');
+    const placeholder = document.querySelectorAll('[placeholder="Ваше сообщение"]');
+    const email = document.querySelectorAll('[type="email"]');
+    const tel = document.querySelectorAll('[type="tel"]');
+
+
 
     const validate = (list) => {
         let success = true;
 
-        // list.forEach(input => {
-        //     if (!input.classList.contains('success')) {
-        //         success = false;
-        //     }
-        // });
+        if (/[^а-яА-Я\s-]/gi.test(text.value)) {
+            success = true;
+        } else {
+            success = false;
+        }
+
+        if (/[^а-яА-Я0-9\s\.,\!?;:\-_]/gi.test(placeholder.value)) {
+            success = true;
+        } else {
+            success = false;
+        }
+
+        if (/[^0-9\()\-]/gi.test(tel.value)) {
+            success = true;
+        } else {
+            success = false;
+        }
+
         return success;
     };
+
 
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -35,8 +55,14 @@ const sendForm = ({
         const formData = new FormData(form);
         const formBody = {};
 
+        if (formId === 'form3') {
+            statusBlock.style.color = 'white';
+        }
+
         statusBlock.textContent = loadText;
+
         form.append(statusBlock);
+
 
         formData.forEach((val, key) => {
             formBody[key] = val;
