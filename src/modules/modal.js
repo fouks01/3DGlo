@@ -11,6 +11,7 @@ const modal = () => {
     let count = 0;
     let modalMove;
 
+
     // const modalAnimation = () => {
     //     count++;
     //     modalMove = requestAnimationFrame(modalAnimation);
@@ -25,14 +26,15 @@ const modal = () => {
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            if (screen.width > 767) {
+            if (screen.width > 768) {
                 animate({
                     duration: 1000,
                     timing(timeFraction) {
                         return Math.pow(timeFraction, 2);
                     },
                     draw(progress) {
-                        modalBlock.style.left = progress * 43 + '%';
+                        modalBlock.style.transform = 'translateX(-50%)';
+                        modalBlock.style.left = progress * 50 + '%';
 
                     }
                 });

@@ -15,26 +15,41 @@ const sendForm = ({
 
 
 
+
+
     const validate = (list) => {
         let success = true;
 
-        if (/[^а-яА-Я\s-]/gi.test(text.value)) {
+
+
+        if (text[0].value.trim() != '' && /[0-9\()\-]/gi.test(tel[0].value)) {
+            success = true;
+        } else if (text[1].value.trim() != '' && /[0-9\()\-]/gi.test(tel[1].value) && /[а-яА-Я0-9\s\.,\!?;:\-_]/gi.test(placeholder[0].value)) {
+            success = true;
+        } else if (text[2].value.trim() != '' && /[0-9\()\-]/gi.test(tel[2].value)) {
             success = true;
         } else {
             success = false;
         }
 
-        if (/[^а-яА-Я0-9\s\.,\!?;:\-_]/gi.test(placeholder.value)) {
-            success = true;
-        } else {
-            success = false;
-        }
 
-        if (/[^0-9\()\-]/gi.test(tel.value)) {
-            success = true;
-        } else {
-            success = false;
-        }
+        // if (/[^а-яА-Я\s-]/gi.test(text.value)) {
+        //     success = true;
+        // } else {
+        //     success = false;
+        // }
+
+        // if (/[^а-яА-Я0-9\s\.,\!?;:\-_]/gi.test(placeholder.value)) {
+        //     success = true;
+        // } else {
+        //     success = false;
+        // }
+
+        // if (/[^0-9\()\-]/gi.test(tel.value)) {
+        //     success = true;
+        // } else {
+        //     success = false;
+        // }
 
         return success;
     };
@@ -84,7 +99,9 @@ const sendForm = ({
         if (validate(formElements)) {
             sendData(formBody).then(data => {
                     statusBlock.textContent = successText;
-
+                    setTimeout(() => {
+                        statusBlock.textContent = '';
+                    }, 2000);
                     formElements.forEach(input => {
                         input.value = '';
                     });
@@ -92,6 +109,7 @@ const sendForm = ({
                 .catch(error => {
                     statusBlock.textContent = errorText;
                 })
+
         } else {
             alert('Данные не валидны!');
         }
@@ -109,6 +127,9 @@ const sendForm = ({
     } catch (error) {
         console.log(error.message);
     }
+
+
+
 };
 
 export default sendForm;
